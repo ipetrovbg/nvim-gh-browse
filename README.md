@@ -6,7 +6,7 @@ If your cursor is on a file path, it will try to open the file in GitHub otherwi
 ## Installation
 ```lua
 use {
-  'nvim-gh-browse',
+  'ipetrovbg/nvim-gh-browse',
   config = function()
     require('gh-browse').setup()
   end
