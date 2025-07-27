@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
   vim.api.nvim_create_user_command("GhBrowse", function()
-    local file_name = vim.fn.expand('%')
+    local file_name = vim.fn.expand('%:.') -- Get the current file path relative to the repository root
     if file_name == '' then
       vim.fn.jobstart({
         'gh', 'browse'
