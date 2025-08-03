@@ -16,8 +16,13 @@ function M.setup()
       return
     end
 
+    local current_row = vim.api.nvim_win_get_cursor(vim.api.nvim_get_current_win())[1]
+    if current_row > 0 then
+      file_name = file_name .. ":" .. tostring(current_row)
+    end
+
     vim.fn.jobstart({
-      'gh', 'browse', file_name
+      'gh', 'browse', file_name,
     }, {
       on_exit = function(job, code)
         if code ~= 0 then
